@@ -1,0 +1,37 @@
+This snippet is a Makefile, which is a file used by the make build automation tool to compile and manage a project. Here’s a step-by-step breakdown of what each part does:
+
+Variables:
+
+CC = gcc: Sets the compiler to GCC (GNU Compiler Collection).
+CFLAGS = -Wall -Wextra -g: Specifies the compiler flags:
+-Wall: Enable all warning messages.
+-Wextra: Enable additional warning messages.
+-g: Include debugging information.
+OBJ = main.o ingrediente.o pizza.o: Lists the object files that need to be produced from the source files.
+EXEC = pizzaria: Names the final executable as pizzaria.
+Targets:
+
+all: $(EXEC): The default target; when you run make, it will build the pizzaria executable.
+
+$(EXEC): $(OBJ): States that pizzaria depends on the object files. If any object file changes, this target will be rebuilt.
+
+$(CC) $(OBJ) -o $(EXEC): Commands to run for building the executable. It invokes GCC to link the object files into the pizzaria executable.
+Rules for Object Files:
+
+main.o: main.c ingrediente.h pizza.h: Specifies that main.o depends on main.c and its headers.
+$(CC) $(CFLAGS) -c main.c: Command to compile main.c into main.o (the -c flag tells GCC to compile only, not link).
+ingrediente.o: ingrediente.c ingrediente.h: Similar structure for ingrediente.o.
+$(CC) $(CFLAGS) -c ingrediente.c: Compiles ingrediente.c into ingrediente.o.
+pizza.o: pizza.c pizza.h ingrediente.h: Defines dependencies for pizza.o.
+$(CC) $(CFLAGS) -c pizza.c: Compiles pizza.c into pizza.o.
+Cleaning Up:
+
+clean:: Defines a target to clean up the directory by removing object files and the executable.
+rm -f $(OBJ) $(EXEC): Command to remove the specified object files and the executable files without prompting.
+Running the Program:
+
+run: $(EXEC): This target is used to run the compiled program.
+./$(EXEC): Command to execute the pizzaria program.
+Summary
+This Makefile automates the build process for a C project that includes the compilation of multiple source (.c) files into object (.o) files,
+linking those object files into a single executable, cleaning up generated files, and providing a method to run the executable. You can build the project by simply typing make, clean it with make clean, and run it with make run.
