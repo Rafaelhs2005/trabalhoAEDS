@@ -6,18 +6,19 @@
 #define MAX_PIZZAS 100
 
 typedef struct {
-    int id;
-    char nome[MAX_NOME];
-    char tamanho; // P, M ou G
-    float preco;
-    int qtdIngredientes;
-    Ingrediente ingredientes[MAX_INGREDIENTES];
+  int id;
+  char nome[MAX_NOME];
+  char tamanho;
+  float preco;
+  int qtdIngredientes;
+  Ingrediente ingredientes[MAX_INGREDIENTES];
 } Pizza;
 
 void adicionarPizza();
 void listarPizzas();
 void editarPizza();
 void removerPizza();
+void venderPizza();
 void exportarPizzas(const char *filename);
 void importarPizzas(const char *filename);
 

@@ -1,6 +1,8 @@
 {
     "C_Cpp.errorSquiggles": "disabled",
     "files.associations": {
-        "pizza.h": "c"
-    }
+        "pizza.h": "c",
+        "ingrediente.h": "c"
+    },
+    "makefile.makefilePath": "C:\\Users\\rhenr\\Desktop\\trabalhoAEDS\\pizzaria\\makefile"
 }

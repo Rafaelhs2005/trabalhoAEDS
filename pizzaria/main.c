@@ -14,9 +14,10 @@ void menu() {
         printf("6. Editar Pizza\n");
         printf("7. Remover Pizza\n");
         printf("8. Listar Pizzas\n");
-        printf("9. Exportar Dados\n");
-        printf("10. Importar Dados\n");
-        printf("11. Sair\n");
+        printf("9. Vender Pizza\n");
+        printf("10. Exportar Dados\n");
+        printf("11. Importar Dados\n");
+        printf("12. Sair\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
 
@@ -29,22 +30,22 @@ void menu() {
             case 6: editarPizza(); break;
             case 7: removerPizza(); break;
             case 8: listarPizzas(); break;
-            case 9:
-                exportarIngredientes("ingredientes.dat");
-                exportarPizzas("pizzas.dat");
-                break;
+            case 9: venderPizza(); break;
             case 10:
-                importarIngredientes("ingredientes.dat");
-                importarPizzas("pizzas.dat");
+                exportarIngredientes("ingredientes.txt");
+                exportarPizzas("pizzas.txt");
                 break;
-            case 11: printf("Saindo...\n"); break;
+            case 11:
+                importarIngredientes("ingredientes.txt");
+                importarPizzas("pizzas.txt");
+                break;
+            case 12: printf("Saindo...\n"); break;
             default: printf("Opcao invalida.\n");
         }
-    } while (opcao != 11);
+    } while (opcao != 12);
 }
 
 int main() {
     menu();
     return 0;
 }
-
