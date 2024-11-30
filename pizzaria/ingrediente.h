@@ -10,6 +10,9 @@ typedef struct {
     float preco;
 } Ingrediente;
 
+extern Ingrediente listaIngredientes[MAX_INGREDIENTES];
+extern int totalIngredientes;
+
 void adicionarIngrediente();
 void listarIngredientes();
 void editarIngrediente();
