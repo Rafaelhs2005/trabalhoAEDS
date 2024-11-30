@@ -202,18 +202,18 @@ void importarPizzas(const char *filename) {
 
 void venderPizza() {
     int idPizza;
-    printf("Selecione uma pizza do cardápio (digite o ID da pizza):\n");
+    printf("Selecione uma pizza do cardapio (digite o ID da pizza):\n");
     listarPizzas();  
     scanf("%d", &idPizza);
 
     if (idPizza < 1 || idPizza > totalPizzas) {
-        printf("Pizza não encontrada.\n");
+        printf("Pizza nao encontrada.\n");
         return;
     }
 
     Pizza *pizzaSelecionada = &cardapio[idPizza - 1];
-    printf("Você selecionou a pizza: %s\n", pizzaSelecionada->nome);
-    printf("Preço base da pizza: %.2f\n", pizzaSelecionada->preco);
+    printf("Voce selecionou a pizza: %s\n", pizzaSelecionada->nome);
+    printf("Preco base da pizza: %.2f\n", pizzaSelecionada->preco);
 
     float precoFinal = pizzaSelecionada->preco;
 
@@ -221,7 +221,7 @@ void venderPizza() {
     while (adicionarMais) {
         printf("\nDeseja adicionar mais ingredientes?\n");
         printf("1. Sim\n");
-        printf("2. Não\n");
+        printf("2. Nao\n");
         int opcao;
         scanf("%d", &opcao);
 
@@ -233,20 +233,20 @@ void venderPizza() {
 
 
             if (idIngrediente < 1 || idIngrediente > totalIngredientes) {
-                printf("Ingrediente inválido.\n");
+                printf("Ingrediente invalido.\n");
             } else {
 
                 Ingrediente ingredienteSelecionado = listaIngredientes[idIngrediente - 1];
                 precoFinal += ingredienteSelecionado.preco;
-                printf("Ingrediente %s adicionado com sucesso! Preço adicional: %.2f\n", ingredienteSelecionado.nome, ingredienteSelecionado.preco);
+                printf("Ingrediente %s adicionado com sucesso! Preco adicional: %.2f\n", ingredienteSelecionado.nome, ingredienteSelecionado.preco);
             }
         } else if (opcao == 2) {
             adicionarMais = 0;  
         } else {
-            printf("Opção inválida. Tente novamente.\n");
+            printf("Opção invalida. Tente novamente.\n");
         }
     }
 
-    printf("\nPreço final da pizza: %.2f\n", precoFinal);
+    printf("\nPreco final da pizza: %.2f\n", precoFinal);
     printf("Venda registrada com sucesso!\n");
 }

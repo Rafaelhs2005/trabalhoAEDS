@@ -39,7 +39,7 @@ void menu() {
                 importarIngredientes("ingredientes.txt");
                 importarPizzas("pizzas.txt");
                 break;
-            case 12: printf("Saindo...\n"); break;
+            case 12: printf("Saindo... Volte sempre!\n"); break;
             default: printf("Opcao invalida.\n");
         }
     } while (opcao != 12);
