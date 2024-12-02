@@ -69,7 +69,7 @@ void removerIngrediente(void) {
 }
 
 void exportarIngredientes(const char *filename) {
-  FILE *file = fopen(filename, "w"); //
+  FILE *file = fopen(filename, "w"); 
 
   if (!file) {
     perror("Erro ao abrir arquivo para exportacao");
